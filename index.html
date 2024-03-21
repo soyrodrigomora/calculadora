@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversión de Monedas</title>
+    <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Calculadora de Conversión de Monedas</h1>
+        <form id="currencyConverter">
+            <div class="mb-3">
+                <label for="pesosInput" class="form-label">Cantidad en Pesos Mexicanos:</label>
+                <input type="number" class="form-control" id="pesosInput" placeholder="Ingrese la cantidad">
+            </div>
+            <div class="mb-3">
+                <label for="yenesOutput" class="form-label">Yenes:</label>
+                <output id="yenesOutput" class="form-control"></output>
+            </div>
+            <div class="mb-3">
+                <label for="dollarsOutput" class="form-label">Dólares:</label>
+                <output id="dollarsOutput" class="form-control"></output>
+            </div>
+            <div class="mb-3">
+                <label for="eurosOutput" class="form-label">Euros:</label>
+                <output id="eurosOutput" class="form-control"></output>
+            </div>
+        </form>
+    </div>
+
+    <!-- Agrega los enlaces a los archivos JS de Bootstrap y el script personalizado -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const pesosInput = document.getElementById('pesosInput');
+        const yenesOutput = document.getElementById('yenesOutput');
+        const dollarsOutput = document.getElementById('dollarsOutput');
+        const eurosOutput = document.getElementById('eurosOutput');
+
+        pesosInput.addEventListener('input', () => {
+            const pesos = parseFloat(pesosInput.value);
+            const yenes = pesos * 9.05; // Tasa de conversión aproximada
+            const dollars = pesos * 0.060; // Tasa de conversión aproximada
+            const euros = pesos * 0.055; // Tasa de conversión aproximada
+
+            yenesOutput.value = yenes.toFixed(2);
+            dollarsOutput.value = dollars.toFixed(2);
+            eurosOutput.value = euros.toFixed(2);
+        });
+    </script>
+</body>
+</html>
